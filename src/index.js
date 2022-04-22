@@ -44,6 +44,7 @@ locationButton.addEventListener("click", getCurrentPosition);
 let now = new Date();
 let hour = now.getHours();
 let minutes = now.getMinutes();
+minutes = minutes <= 9 ? "0" + minutes : minutes;
 let day = now.getDay();
 let days = [
   "Sunday",
@@ -55,13 +56,31 @@ let days = [
   "Saturday",
 ];
 
-if (minutes < 10) {
-  minutes = "0" + min;
-} else {
-  minutes = minutes + "";
-}
 let currentDay = days[now.getDay()];
 let h4 = document.querySelector("h4");
 h4.innerHTML = `${currentDay} ${hour}:${minutes}`;
 
 //
+
+function convertToFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#current-temp");
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.remove("active");
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature) + "°";
+}
+
+function convertToCelsius(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  fahrenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#current-temp");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature) + "°";
+}
+let celsiusTemperature = null;
+let fahrenheitLink = document.querySelector("#fahrenheit-current");
+fahrenheitLink.addEventListener("click", convertToFahrenheit);
+
+let celsiusLink = document.querySelector("#celsius-current");
+celsiusLink.addEventListener("click", convertToCelsius);
