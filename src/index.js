@@ -54,6 +54,12 @@ let days = [
   "Friday",
   "Saturday",
 ];
+
+if (minutes < 10) {
+  minutes = "0" + min;
+} else {
+  minutes = minutes + "";
+}
 let currentDay = days[now.getDay()];
 let h4 = document.querySelector("h4");
 h4.innerHTML = `${currentDay} ${hour}:${minutes}`;
