@@ -9,7 +9,7 @@ body {
 }
 
 h1 {
-  font-weight: 600;
+  font-weight: 300;
 }
 
 h2 {
@@ -70,10 +70,15 @@ hr {
 .fa-cloud-sun {
   color: rgba(235, 235, 170, 0.877);
 }
-
-.contact {
+#contact {
   margin: 0 auto;
   display: block;
+  margin-bottom: -15px;
+  text-align: center;
+  font-size: 11px;
+}
+#contact-link {
+  color: white;
 }
 
 #units {
@@ -111,9 +116,9 @@ hr {
   padding: 30px;
   text-align: center;
 }
-#farenheight-current {
+#fahrenheit-current {
   cursor: pointer;
 }
-#celcius-current {
+#celsius-current {
   cursor: pointer;
 }
