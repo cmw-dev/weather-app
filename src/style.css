@@ -10,6 +10,7 @@ body {
 
 h1 {
   font-weight: 300;
+  margin-bottom: 13px;
 }
 
 h2 {
@@ -54,21 +55,8 @@ hr {
   font-size: 17px;
   border-radius: 10px;
 }
-
-.fa-cloud-rain {
-  color: rgba(25, 25, 215, 0.393);
-}
-
-.fa-sun {
-  color: rgba(255, 255, 0, 0.695);
-}
-
-.fa-cloud {
-  color: rgba(56, 66, 66, 0.654);
-}
-
-.fa-cloud-sun {
-  color: rgba(235, 235, 170, 0.877);
+.weather-icons {
+  color: white;
 }
 #contact {
   margin: 0 auto;
@@ -107,10 +95,10 @@ hr {
   text-align: center;
   margin-top: -5px;
 }
-#icon-description {
-  padding: 8px;
-}
 
+#icon-description {
+  font-size: 89px;
+}
 #forecast {
   margin: 0 auto;
   padding: 30px;
