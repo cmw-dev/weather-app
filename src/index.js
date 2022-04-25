@@ -93,3 +93,19 @@ fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
 let celsiusLink = document.querySelector("#celsius-current");
 celsiusLink.addEventListener("click", convertToCelsius);
+
+let time = new Date().getHours();
+
+if (time < 12) {
+  document.body.style.backgroundImage = "url('images/morning.png')";
+  document.body.style.backgroundSize = "cover";
+  document.body.style.backgroundImage = "no-repeat";
+} else if (time < 15) {
+  document.body.style.backgroundImage = "url('images/afternoon.png')";
+  document.body.style.backgroundSize = "cover";
+  document.body.style.backgroundImage = "no-repeat";
+} else {
+  document.body.style.backgroundImage = "url('images/night.png')";
+  document.body.style.backgroundSize = "cover";
+  document.body.style.backgroundImage = "no-repeat";
+}
