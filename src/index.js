@@ -11,19 +11,27 @@ function showCurrentTemp(response) {
   feels.innerHTML = Math.round(response.data.main.feels_like);
   let wind = document.querySelector("#wind");
   wind.innerHTML = Math.round(response.data.wind.speed) + " mph";
-  console.log(response.data);
+
+  fahrenheitTemperature = response.data.main.temp;
 }
 
-function search(event) {
-  event.preventDefault();
-  let city = document.querySelector("#search-city").value;
+function search(city) {
   let apiKey = "63d02659b2e2665ee910b0246bed0772";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(showCurrentTemp);
 }
 
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityElement = document.querySelector("#search-city");
+  search(cityElement.value);
+}
+
 let form = document.querySelector("#search-form");
-form.addEventListener("submit", search);
+form.addEventListener("submit", handleSubmit);
+
+search("New York");
+
 //
 
 function showPosition(position) {
@@ -65,20 +73,18 @@ h4.innerHTML = `${currentDay} ${hour}:${minutes}`;
 function convertToFahrenheit(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#current-temp");
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.remove("active");
-  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(fahrenheitTemperature) + "°";
 }
 
 function convertToCelsius(event) {
   event.preventDefault();
-  celsiusLink.classList.add("active");
-  fahrenheitLink.classList.remove("active");
   let temperatureElement = document.querySelector("#current-temp");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature) + "°";
+  let celsiusTemp = (fahrenheitTemperature - 32) * (5 / 9);
+  temperatureElement.innerHTML = Math.round(celsiusTemp) + "°";
 }
-let celsiusTemperature = null;
+
+let fahrenheitTemperature = null;
+
 let fahrenheitLink = document.querySelector("#fahrenheit-current");
 fahrenheitLink.addEventListener("click", convertToFahrenheit);
 
