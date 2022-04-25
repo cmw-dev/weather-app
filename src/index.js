@@ -3,7 +3,7 @@ function showCurrentTemp(response) {
   temp.innerHTML = Math.round(response.data.main.temp) + "°";
   let location = document.querySelector("#current-city");
   location.innerHTML = response.data.name;
-  let description = document.querySelector("#description");
+  let description = document.querySelector("#weather-description");
   description.innerHTML = response.data.weather[0].description;
   let humidity = document.querySelector("#humidity");
   humidity.innerHTML = response.data.main.humidity;
@@ -11,6 +11,9 @@ function showCurrentTemp(response) {
   feels.innerHTML = Math.round(response.data.main.feels_like);
   let wind = document.querySelector("#wind");
   wind.innerHTML = Math.round(response.data.wind.speed) + " mph";
+  let iconElement = document.querySelector("#icon-description");
+  iconElement.setAttribute("src", `icons/${response.data.weather[0].icon}.png`);
+  iconElement.setAttribute("alt", response.data.weather[0].description);
 
   fahrenheitTemperature = response.data.main.temp;
 }
