@@ -51,7 +51,7 @@ hr {
   max-width: 675px;
   padding: 60px 40px;
   color: white;
-  background-color: rgba(100, 121, 173, 0.5);
+  background-color: rgba(100, 121, 173, 0.6);
   font-size: 17px;
   border-radius: 10px;
 }
@@ -107,6 +107,7 @@ hr {
 #fahrenheit-current {
   cursor: pointer;
 }
+
 #celsius-current {
   cursor: pointer;
 }

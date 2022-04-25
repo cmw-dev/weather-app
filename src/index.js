@@ -96,16 +96,19 @@ celsiusLink.addEventListener("click", convertToCelsius);
 
 let time = new Date().getHours();
 
-if (time < 12) {
+if (time < 14) {
   document.body.style.backgroundImage = "url('images/morning.png')";
   document.body.style.backgroundSize = "cover";
-  document.body.style.backgroundImage = "no-repeat";
-} else if (time < 15) {
+  document.body.style.backgroundRepeat = "no-repeat";
+  document.body.style.backgroundPosition = "center";
+} else if (time < 20) {
   document.body.style.backgroundImage = "url('images/afternoon.png')";
   document.body.style.backgroundSize = "cover";
-  document.body.style.backgroundImage = "no-repeat";
+  document.body.style.backgroundRepeat = "no-repeat";
+  document.body.style.backgroundPosition = "center";
 } else {
   document.body.style.backgroundImage = "url('images/night.png')";
   document.body.style.backgroundSize = "cover";
-  document.body.style.backgroundImage = "no-repeat";
+  document.body.style.backgroundRepeat = "no-repeat";
+  document.body.style.backgroundPosition = "center";
 }
