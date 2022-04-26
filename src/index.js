@@ -103,12 +103,12 @@ function showPosition(position) {
   axios.get(apiUrl).then(showCurrentTemp);
 }
 
-function getCurrentPosition(event) {
+function handlePosition(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 let locationButton = document.querySelector("#current-location-button");
-locationButton.addEventListener("click", getCurrentPosition);
+locationButton.addEventListener("click", handlePosition);
 //
 let now = new Date();
 let hour = now.getHours();
@@ -154,7 +154,7 @@ celsiusLink.addEventListener("click", convertToCelsius);
 
 let time = new Date().getHours();
 
-if (time < 14) {
+if (time < 12) {
   document.body.style.backgroundImage = "url('images/morning.png')";
   document.body.style.backgroundSize = "cover";
   document.body.style.backgroundRepeat = "no-repeat";
@@ -163,6 +163,7 @@ if (time < 14) {
   document.body.style.backgroundImage = "url('images/afternoon.png')";
   document.body.style.backgroundSize = "cover";
   document.body.style.backgroundRepeat = "no-repeat";
+  document.body.style.backgroundPosition = "center";
 } else {
   document.body.style.backgroundImage = "url('images/night.png')";
   document.body.style.backgroundSize = "cover";
