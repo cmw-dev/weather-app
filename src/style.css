@@ -59,7 +59,7 @@ hr {
   color: white;
 }
 #search-form {
-  text-align: center;
+  padding: 0;
 }
 #contact {
   margin: 0 auto;
