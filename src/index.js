@@ -1,4 +1,5 @@
-function displayForecast() {
+function displayForecast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row-no-gutters">`;
@@ -32,6 +33,11 @@ function displayForecast() {
   forecastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+  let apiKey = "63d02659b2e2665ee910b0246bed0772";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayForecast);
+}
 function showCurrentTemp(response) {
   let temp = document.querySelector("#current-temp");
   temp.innerHTML = Math.round(response.data.main.temp) + "°";
@@ -50,7 +56,8 @@ function showCurrentTemp(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
   fahrenheitTemperature = response.data.main.temp;
-  displayForecast();
+
+  getForecast(response.data.coord);
 }
 
 function search(city) {
