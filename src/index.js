@@ -1,3 +1,37 @@
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = [
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+    "Sunday",
+    "Monday",
+  ];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div id="monday" class="row">
+        <div class="col-4">${day}</div>
+          <div class="col-4">
+            <img id="monday-icon"
+              src="icons/01d.png"
+              alt=""/>
+            </div>
+            <div class="weather-forecast-temperatures col-4 ">
+             <span class="forecast-temperature-max"> 46° </span> | 
+            <span class="forecast-temperature-min">32°</span></div>
+          </div>
+          <br/><br/>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function showCurrentTemp(response) {
   let temp = document.querySelector("#current-temp");
   temp.innerHTML = Math.round(response.data.main.temp) + "°";
@@ -16,6 +50,7 @@ function showCurrentTemp(response) {
   iconElement.setAttribute("alt", response.data.weather[0].description);
 
   fahrenheitTemperature = response.data.main.temp;
+  displayForecast();
 }
 
 function search(city) {
