@@ -1,7 +1,7 @@
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
 
-  let forecastHTML = `<div class="row">`;
+  let forecastHTML = `<div class="row-no-gutters">`;
   let days = [
     "Tuesday",
     "Wednesday",
@@ -25,7 +25,7 @@ function displayForecast() {
              <span class="forecast-temperature-max"> 46° </span> | 
             <span class="forecast-temperature-min">32°</span></div>
           </div>
-          <br/><br/>`;
+          <br/>`;
   });
 
   forecastHTML = forecastHTML + `</div>`;
