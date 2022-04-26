@@ -65,7 +65,7 @@ function showCurrentTemp(response) {
   let feels = document.querySelector("#feels-like");
   feels.innerHTML = Math.round(response.data.main.feels_like);
   let wind = document.querySelector("#wind");
-  wind.innerHTML = Math.round(response.data.wind.speed) + " mph";
+  wind.innerHTML = Math.round(response.data.wind.speed) + " ";
   let iconElement = document.querySelector("#icon-description");
   iconElement.setAttribute("src", `icons/${response.data.weather[0].icon}.png`);
   iconElement.setAttribute("alt", response.data.weather[0].description);
