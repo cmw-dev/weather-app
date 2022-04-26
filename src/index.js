@@ -105,7 +105,6 @@ if (time < 14) {
   document.body.style.backgroundImage = "url('images/afternoon.png')";
   document.body.style.backgroundSize = "cover";
   document.body.style.backgroundRepeat = "no-repeat";
-  document.body.style.backgroundPosition = "center";
 } else {
   document.body.style.backgroundImage = "url('images/night.png')";
   document.body.style.backgroundSize = "cover";

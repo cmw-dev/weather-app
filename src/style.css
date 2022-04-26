@@ -58,6 +58,9 @@ hr {
 .weather-icons {
   color: white;
 }
+#search-form {
+  text-align: center;
+}
 #contact {
   margin: 0 auto;
   display: block;
